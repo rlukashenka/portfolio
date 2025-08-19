@@ -1,0 +1,251 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --c-bg-light: #ffffff;
+    --c-text-dark: #3a3a3c;
+    --c-accent: #6f94ad;
+    --c-accent-strong: #58768a;
+    --hover-dark: #ced2db;
+    --c-bg-dark: #3a3a3c;
+    --c-text-light: #ffffff;
+    --ring: color-mix(in oklab, var(--c-accent) 45%, transparent);
+    --footer-h: 280px;
+    --header-h: 56px;
+    --font-sans:
+        'Satoshi', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --blob-light: rgba(0, 0, 0, 0.4);
+    --blob-dark: rgba(255, 255, 255, 0.22);
+
+    --glass-light: color-mix(in oklab, white 45%, transparent);
+    --glass-dark: color-mix(in oklab, #2f2f31 45%, transparent);
+
+    --cmd-hover-light: var(--c-accent-strong);
+    --cmd-hover-dark: var(--hover-dark);
+    --btn-hover-light: color-mix(
+        in oklab,
+        var(--c-accent-strong) 70%,
+        transparent
+    );
+    --btn-hover-dark: color-mix(in oklab, var(--hover-dark) 70%, transparent);
+}
+html,
+body {
+    font-family: var(--font-sans);
+}
+
+:where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role='button'],
+    [tabindex]
+):focus-visible {
+    outline: 3px solid var(--c-accent-strong);
+    outline-offset: 4px;
+    border-radius: 0.6rem;
+}
+html.dark
+    :where(
+        a,
+        button,
+        input,
+        select,
+        textarea,
+        [role='button'],
+        [tabindex]
+    ):focus-visible {
+    outline-color: var(--hover-dark);
+}
+
+html {
+    scroll-padding-top: calc(var(--header-h) + 8px);
+}
+:where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [role='button'],
+    [tabindex]
+):focus-visible {
+    scroll-margin-top: calc(var(--header-h) + 8px);
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--c-accent-strong);
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    z-index: 1000;
+}
+.skip-link:focus {
+    left: 0.75rem;
+    top: 0.75rem;
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+.bg-grid {
+    background-image:
+        radial-gradient(
+            600px 300px at 20% -10%,
+            color-mix(in oklab, var(--c-accent) 8%, transparent),
+            transparent 60%
+        ),
+        radial-gradient(
+            800px 400px at 120% 10%,
+            color-mix(in oklab, var(--c-accent) 7%, transparent),
+            transparent 60%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent,
+            transparent 100px,
+            rgba(0, 0, 0, 0.03) 101px,
+            transparent 102px
+        );
+    background-size:
+        auto,
+        auto,
+        24px 24px;
+    background-position: center;
+}
+dark:bg-grid {
+    background-image:
+        radial-gradient(
+            600px 300px at 20% -10%,
+            color-mix(in oklab, var(--c-accent) 18%, transparent),
+            transparent 60%
+        ),
+        radial-gradient(
+            800px 400px at 120% 10%,
+            color-mix(in oklab, var(--c-accent) 12%, transparent),
+            transparent 60%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent,
+            transparent 100px,
+            rgba(255, 255, 255, 0.05) 101px,
+            transparent 102px
+        );
+}
+
+.glass-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    background: var(--glass-light);
+}
+.dark .glass-overlay {
+    background: var(--glass-dark);
+}
+
+.cmdk :where(button, [role='option'], input, [tabindex]):focus,
+.cmdk :where(button, [role='option'], input, [tabindex]):focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.cmdk[data-tabbing='true']
+    :where(button, [role='option'], input, [tabindex]):focus-visible {
+    outline: 3px solid var(--c-accent-strong) !important;
+    outline-offset: 3px;
+    border-radius: 0.6rem;
+}
+html.dark
+    .cmdk[data-tabbing='true']
+    :where(button, [role='option'], input, [tabindex]):focus-visible {
+    outline-color: var(--hover-dark) !important;
+}
+
+#experience :where(button, [role='button'], .exp-card) {
+    cursor: pointer;
+    transition:
+        transform 120ms ease,
+        border-color 120ms ease,
+        box-shadow 120ms ease;
+}
+
+#experience :where(button, [role='button'], .exp-card):hover {
+    transform: translateY(-1px) scale(1.01);
+    border-color: var(--c-accent-strong);
+    outline: none !important;
+    box-shadow: none;
+}
+.dark #experience :where(button, [role='button'], .exp-card):hover {
+    border-color: var(--hover-dark);
+}
+
+#experience :where(button, [role='button'], .exp-card):active {
+    transform: translateY(0) scale(0.98);
+    outline: none !important;
+}
+
+kbd,
+.kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.35em;
+    height: 1.6em;
+    padding: 0 0.4em;
+    border-radius: 0.4em;
+    font-size: 0.85em;
+    line-height: 1;
+    border: 1px solid #c9ced6;
+    background: #f1f3f6;
+    color: #2b2b2d;
+    box-shadow: 0 1px 0 #d8dde4 inset;
+    font-family:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        'Liberation Mono', 'Courier New', monospace;
+}
+.dark kbd,
+.dark .kbd {
+    border-color: #4a4a4d;
+    background: #222325;
+    color: #ffffff;
+    box-shadow: 0 1px 0 #2d2e31 inset;
+}
+
+.header-nav a {
+    position: relative;
+    transition: color 120ms ease;
+}
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: var(--c-accent-strong);
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition:
+        transform 160ms ease,
+        opacity 160ms ease;
+}
+.dark .header-nav a::after {
+    background: var(--hover-dark);
+}
+.header-nav a[data-active='true']::after,
+.header-nav a:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
