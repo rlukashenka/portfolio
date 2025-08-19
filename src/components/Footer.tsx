@@ -35,7 +35,7 @@ export function Footer() {
                     </a>
                     <a
                         className="w-full sm:w-auto inline-flex items-center gap-2 min-h-[44px] hover:text-[var(--c-accent-strong)] dark:hover:text-[var(--hover-dark)]"
-                        href="https://www.linkedin.com/"
+                        href="https://www.linkedin.com/in/raman-lukashenka/"
                         target="_blank"
                         rel="noopener"
                         aria-label="LinkedIn profile"
@@ -59,7 +59,7 @@ export function Footer() {
                     </a>
                     <a
                         className="w-full sm:w-auto inline-flex items-center gap-2 min-h-[44px] hover:text-[var(--c-accent-strong)] dark:hover:text-[var(--hover-dark)]"
-                        href="https://github.com/"
+                        href="https://github.com/rlukashenka"
                         target="_blank"
                         rel="noopener"
                         aria-label="GitHub profile"
