@@ -9,11 +9,11 @@ export const experiences: ExperienceDetails[] = [
         location: 'Tbilisi, Georgia',
         achievements: [
             {
-                label: 'USD $40M+ processed',
+                label: '$40M+ processed',
                 description: 'Crypto transactions in 2024',
             },
             {
-                label: '3× smaller bundle',
+                label: '3x smaller bundle',
                 description: 'Improved FCP after UI migration',
             },
             {
@@ -108,7 +108,7 @@ export const experiences: ExperienceDetails[] = [
         location: 'Remote',
         achievements: [
             {
-                label: '&lt; 1s report load',
+                label: '<1s report load',
                 description: 'Down from ~8s',
             },
             {
