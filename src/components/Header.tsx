@@ -13,7 +13,10 @@ type Props = {
 }
 
 export function Header({ activeSection, setPaletteOpen }: Props) {
-    const [theme, setTheme] = useLocalStorage<'light'|'dark'>(THEME_STORAGE_KEY, 'light')
+    const [theme, setTheme] = useLocalStorage<'light' | 'dark'>(
+        THEME_STORAGE_KEY,
+        'light'
+    )
     const isDark = theme === 'dark'
     const toggleTheme = () =>
         setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))

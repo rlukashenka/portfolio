@@ -7,7 +7,6 @@ import {
     type CommandItem,
     Modal,
     ExperienceDetailsCard,
-    GooLayerCanvas,
 } from '~components'
 import { Footer } from '~components/Footer'
 import { experiences, headerMenuItems } from '~constants'
@@ -153,14 +152,14 @@ export default function App() {
             <a href="#home" className="skip-link" tabIndex={0}>
                 Skip to content
             </a>
-            <GooLayerCanvas />
 
-            {
-                <Header
-                    activeSection={activeSection}
-                    setPaletteOpen={setPaletteOpen}
-                />
-            }
+            {/* TODO: Optimize this component rendering */}
+            {/* <GooLayerCanvas /> */}
+
+            <Header
+                activeSection={activeSection}
+                setPaletteOpen={setPaletteOpen}
+            />
 
             {/* Main */}
             <main id="home" className="relative z-10">
